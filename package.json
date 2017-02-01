@@ -1,0 +1,14 @@
+{
+  "name": "node-bono-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ganesha <reekoheek@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bono": "github:xinix-technology/node-bono#master"
+  }
+}
