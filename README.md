@@ -1,5 +1,9 @@
 # node-bono-auth
 
+```sh
+npm i bono-auth
+```
+
 ```js
 const Bundle = require('bono');
 const auth = require('bono-auth');
@@ -14,9 +18,10 @@ auth.use(async ctx => {
   }
 });
 
-app.use(auth.authenticate({ excludes: [ '/auth' ] }));
+const api = new Bundle();
+api.use(auth.authenticate());
+app.bundle('/api', api);
+app.bundle('/auth', new auth.Bundle());
 
-app.bundle('/auth', new auth.Bundle({ secret }));
-
-app.listen(3000);
+app.listen(3000, () => console.log('Listening at http://localhost:3000'));
 ```
