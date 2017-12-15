@@ -19,7 +19,7 @@ module.exports = function ({ secret, getToken = getTokenFromHeader, generateExpi
   strategy.createToken = function (args) {
     const exp = generateExpire();
     let token = jwt.sign({ ...args }, secret);
-    return { ...args };
+    return { token, ...args };
   };
 
   return strategy;
