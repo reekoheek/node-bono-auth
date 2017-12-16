@@ -16,10 +16,10 @@ module.exports = function ({ secret, getToken = getTokenFromHeader, generateExpi
     return user;
   };
 
-  strategy.createToken = function ({ username }) {
+  strategy.createToken = function (args) {
     const exp = generateExpire();
-    let token = jwt.sign({ username, exp }, secret);
-    return { username, token };
+    let token = jwt.sign({ ...args }, secret);
+    return { token, ...args };
   };
 
   return strategy;
